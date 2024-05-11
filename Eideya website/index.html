@@ -1,0 +1,55 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="x-icon" href="mg2.jpg" />
+    <title>G's fam</title>
+    <link rel="stylesheet" href="design.css" />
+
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="cig5.png" class="logo" />
+        </div>
+        <div class=" content">
+            <h1> Choose your Eideyaa </h1>
+            <div id="buttons-container">
+                <button type="button" class="button-img" style="background-image: url('100p.jpg');"onclick="buttonClicked(this);"><span></span></button>
+                <button type="button" class="button-img" style="background-image: url('200pp.jpg');" onclick="buttonClicked(this);"><span></span></button>
+                <button id="button-10"type="button" class="button-img" style="background-image: url('10.jpeg');" onclick="showMessage('CONGRATS!!!!! you won 10 pounds ;)');"><span></span></button>
+                <button id="button-5" type="button" class="button-img" style="background-image: url('5.jpeg');" onclick="showMessage('CONGRATS!!!!! you won 5 pounds ;)');"><span></span></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage(message) {
+            alert(message);
+     
+        }
+        function swapButtons(button1, button2) {
+            // Create temporary variables to hold button1's properties
+            var tempInnerHTML = button1.innerHTML;
+            var tempOnClick = button1.getAttribute('onclick');
+            var tempBackground = button1.style.backgroundImage;
+
+            // Swap button1's properties with button2's properties
+            button1.innerHTML = button2.innerHTML;
+            button1.setAttribute('onclick', button2.getAttribute('onclick'));
+            button1.style.backgroundImage = button2.style.backgroundImage;
+
+            // Set button2's properties with the temporary variables
+            button2.innerHTML = tempInnerHTML;
+            button2.setAttribute('onclick', tempOnClick);
+            button2.style.backgroundImage = tempBackground;
+        }
+
+        function buttonClicked(button) {
+            var otherButtonId = button.id === 'button-10' ? 'button-5' : 'button-10';
+            var otherButton = document.getElementById(otherButtonId);
+            swapButtons(button, otherButton);
+        }
+    </script>
+    
+    
+</body>
+</html>
